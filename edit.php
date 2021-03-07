@@ -12,11 +12,11 @@ $Information=$_POST['Information'];
 
 //$statment=$connection->query("UPDATE  `workers` SET `name` =$name,SET `phoneno`=$phone,SET `work` =$work,SET `info`=$info,SET `expe`=$expe");
 
-$statment=$connection->query("UPDATE `request` SET `name` = '$name', `image` = '$imagename' ,`Information` = '$Information',`Experiance`='$Experiance' WHERE `request`.`name` = '$name'");
+$statment=$connection->query("UPDATE `worker` SET `name` = '$name', `image` = '$imagename' ,`Information` = '$Information',`Experiance`='$Experiance' WHERE `worker`.`name` = '$name'");
 
 $count=$statment -> rowCount();
 
 if($count>0){
     if($base64 != NULL){file_put_contents("upload\\" . $imagename , $image);}
-    echo json_encode(array("statuse"=>"sucsses update"));}
+    echo json_encode("statusesucsses update");}
 ?>

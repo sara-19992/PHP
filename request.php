@@ -1,21 +1,19 @@
 <?php
 require('connect.php');
 $name=$_POST['name'];
-$namefirst=$_POST['namefirst'];
-$namelast=$_POST['namelast'];
 $pass=$_POST['pass'];
 $phone=$_POST['phone'];
 $imagename=$_POST['imagename'];
 $base64=$_POST['image64'];
 $image=base64_decode($_POST['image64']);
-$token=$_POST['mytoken'];
-$Work=$_POST['Work'];
+$ًWork=$_POST['Work'];
 $Experiance=$_POST['Experiance'];
 $Information=$_POST['Information'];
-$country=$_POST['country'];
+$token=$_POST['mytoken'];
+
 $login='';
 
-$statment=$connection->query("INSERT INTO `request` (`name`,`namefirst`, `namelast`, `pass` , `phone`, `image` , `token`,`country`) VALUES ('$name','$namefirst' ,'$namelast', '$pass','$phone','$imagename','$token','$country')");
+$statment=$connection->query("INSERT INTO `request` (`name`, `pass` , `phone`, `image` , `Work` , `Experiance` , `Information` ,  `token`) VALUES ('$name', '$pass','$phone','$imagename','$ًWork','$Experiance','$Information','$token')");
 
 $count=$statment -> rowCount();
 
