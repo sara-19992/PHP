@@ -10,10 +10,11 @@ $ًWork=$_POST['Work'];
 $Experiance=$_POST['Experiance'];
 $Information=$_POST['Information'];
 $token=$_POST['mytoken'];
+$country=$_POST['country'];
 
 $login='';
 
-$statment=$connection->query("INSERT INTO `request` (`name`, `pass` , `phone`, `image` , `Work` , `Experiance` , `Information` ,  `token`) VALUES ('$name', '$pass','$phone','$imagename','$ًWork','$Experiance','$Information','$token')");
+$statment=$connection->query("INSERT INTO `request` (`country`,`name`, `pass` , `phone`, `image` , `Work` , `Experiance` , `Information` ,  `token`) VALUES ('$country','$name', '$pass','$phone','$imagename','$ًWork','$Experiance','$Information','$token')");
 
 $count=$statment -> rowCount();
 
