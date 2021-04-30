@@ -4,7 +4,7 @@ require('connect.php');
 $phone=$_POST['phone'];
 $date=$_POST['date'];
 
-$statment=$connection->query("SELECT `all_order`.*,`users`.* FROM `all_order`,`users` WHERE `all_order`.`phoneworker` = '$phone' and `all_order`.`date` = '$date' and `all_order`.`statues` = 'wait' and `users`.`phone`=`all_order`.`phoneuser`");
+$statment=$connection->query("SELECT `all_order`.*,`users`.*,`user_current`.city,`user_current`.lat,`user_current`.lng FROM `all_order`,`users`,`user_current` WHERE `all_order`.`phoneworker` = '$phone' and `all_order`.`date` = '$date' and `all_order`.`accept` = 'no' and `all_order`.`deleteornot` = 'no' and `users`.`phone`=`all_order`.`phoneuser` and `user_current`.`phoneuser`=`all_order`.`phoneuser`");
 
 $myarray=$statment->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($myarray);
